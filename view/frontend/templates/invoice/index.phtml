@@ -1,0 +1,81 @@
+<?php
+/* @var \Codilar\QrCode\Block\Invoice $block */
+
+$invoiceId = $block->getData('finalInvoiceId');
+?>
+<div class="welcome-title">
+    <div class="welcome">
+        <h5>RSH Global Private Limited</h5>
+        <p>GSTIN:19AADCR0379P2ZP</p>
+    </div>
+    <div class="main-cont">
+        <div class="right-cont">
+            <span>
+                <p class="mycontent">Invoice Number</p>
+                <p class="mycontent"><?php echo 'IN/WB/'. substr($invoiceId,4)  ?>
+</p>
+            </span>
+            <span>
+                <p class="mycontent">CGST</p>
+                <p class="mycontent"><?php echo $block->getCoreTax($invoiceId) ?></p>
+            </span>
+            <span>
+                <p class="mycontent">IGST</p>
+                <p class="mycontent">0</p>
+            </span>
+        </div>
+        <div class="left-cont">
+            <span>
+                <p class="mycontent">Invoice Date</p>
+                <p class="mycontent"><?php echo $block->getEcomInvoiceDate($invoiceId)?></p>
+            </span>
+            <span>
+                <p class="mycontent">SGST</p>
+                <p class="mycontent"><?php echo $block->getCoreTax($invoiceId) ?></p>
+            </span>
+            <span>
+                <p class="mycontent">Total Amount</p>
+                <p class="mycontent"><?php echo $block->getCoreOrderTotal($invoiceId) ?></p>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    @media (min-width:320px) and (max-width:768px) {
+        .welcome-title {
+            padding-top: 7rem;
+        }
+    }
+
+    @media screen and (min-width:769px) {
+        .welcome-title {
+            padding-top: 12rem;
+        }
+    }
+    .mycontent {
+        margin: 0;
+        padding: 0;
+    }
+    .welcome {
+        text-align: center;
+    }
+    .main-cont {
+        display: flex;
+        justify-content: center;
+    }
+    @media  screen and (max-width:767px){
+        .right-cont , .left-cont{
+            width: 45%;
+            text-align: center;
+        }
+    }
+    @media screen and (min-width: 768px){
+        .right-cont , .left-cont{
+            width: 30%;
+            text-align: center;
+        }
+    }
+
+</style>

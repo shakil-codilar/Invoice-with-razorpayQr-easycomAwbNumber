@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="codilar_qrcode" resource="default" engine="innodb" comment="Codilar Qr Code information is stored here">
+        <column xsi:type="smallint" name="id" unsigned="false" nullable="false" identity="true"
+                comment="Column Id"/>
+        <column xsi:type="varchar" name="qr_id" nullable="false" length="255" comment="Qr Id"/>
+        <column xsi:type="int" name="order_id" nullable="false" comment="Order Id"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
